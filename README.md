@@ -1,6 +1,7 @@
 # proyecto final
 
-● Qué hace el programa.
+¿ Qué hace el programa?
+
 1.Operaciones básicas: Permite realizar sumas (+), restas (-), multiplicaciones (×) y divisiones (÷) con números enteros y decimales.
 
 2. Interfaz adaptable: Tiene un diseño ordenado en una cuadrícula de botones con diferentes colores según su función para que sea intuitiva. Además, la ventana se centra automáticamente en la pantalla al abrirse.
@@ -10,7 +11,7 @@
 4. Historial de operaciones: Incluye un botón HIST que abre una ventana secundaria flotante donde se van guardando y mostrando todas las operaciones que se han hecho en la sesión.
 
    
-● Qué partes del código implementaste tú.
+¿ Qué partes del código implementaste tú?
 
 1. Diseño de la interfaz y matriz de botones: Creé la estructura de la cuadrícula usando una lista de listas (button_values) para organizar las filas y columnas, y asigné colores personalizados a cada tipo de botón (operadores, números y funciones especiales).
 
@@ -23,7 +24,8 @@
 5.Ventana de historial: Programé la función mostrar_el_historial para que cree una ventana nueva (Toplevel) y use un ciclo para mostrar la lista de operaciones guardadas o un aviso si aún está vacía.
 
 
-● Qué aprendiste durante el desarrollo.
+¿ Qué aprendiste durante el desarrollo?
+
 Uso de interfaces gráficas con Tkinter: Aprendí a crear ventanas, usar contenedores (Frame), etiquetas de texto (Label) y botones, además de cómo acomodarlos de forma ordenada usando el sistema de cuadrícula (grid).
 
 Manejo de eventos y funciones Lambda: Entendí cómo pasarle datos dinámicos a una función cuando se presiona un botón específico en un ciclo, usando command=lambda v=value: button_clicked(v).
