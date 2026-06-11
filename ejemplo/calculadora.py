@@ -98,7 +98,7 @@ def button_clicked(value):
         
         return
 
-# 
+# si la calculadora esta apagada, ignora por completo cualquier otro boton
 
     if not calculadora_encendida:
         return
@@ -122,7 +122,7 @@ def button_clicked(value):
             label["text"]= "0"
             return
         texto=label["text"]
-
+# Si hay mas de un numero  borra el ultimo
         if len(texto)>1:
             label["text"] = texto[:-1]
         else:
@@ -133,12 +133,12 @@ def button_clicked(value):
     #                                                                    OPERADORES
 
     if value in right_symbols:
-
+#si presionan igual, hace las operaaciones matematicas
         if value == "=":
              if operador is not None:
                  
                  numero_2=label ["text"]
-
+# convierte a float para poder manejar decimales sin problemas
                  primer_numero=float(numero_1)
                  segundo_numero=float(numero_2)
 
@@ -149,7 +149,7 @@ def button_clicked(value):
                  elif  operador== "×":
                      resultado=eliminar_cero_con_decimal(primer_numero * segundo_numero)
                  elif operador== "÷":
-
+# esto sirve para que si se divide entre cero no falle el programa
                      if segundo_numero== 0:
                          label["text"] = "Error"
                          limpiar()
@@ -162,7 +162,7 @@ def button_clicked(value):
                  )
 
                  limpiar()
-        else:
+        else:       # si presionan +,-,x o / se guarda el primer numero
           if operador is None:
               numero_1= label ["text"]
               label["text"] = "0"
@@ -176,12 +176,12 @@ def button_clicked(value):
     
     
     if value == ".":
-
+# Evita que pongan mas de un punto decimal en el mismo numero
         if "." not in label ["text"]:
             label["text"] += "."
     
     elif value in "0123456789":
-
+# si hay un "0", se remplaza por el numero presionado
         if label["text"] == "0":
             label["text"] = value
         
@@ -196,7 +196,7 @@ window.title("Calculadora")
 window.resizable(False, False)
 
 frame= tkinter.Frame(window)
-label= tkinter.Label(
+label= tkinter.Label(        # en esta pantalla se muestran los numeros
     frame,
     text="0",
     font=("Arial",45),
@@ -207,7 +207,7 @@ label= tkinter.Label(
 )
 
 label.grid(row=0, column=0, columnspan=column_count, sticky="we")
-
+# se anidan los bucles para la cuadricula de botones 
 for row in range(row_count):
     for column in range(column_count):
 
@@ -225,6 +225,7 @@ for row in range(row_count):
         )
         
         #                                                                    COLORES
+        #se ponen de color los botones dependiendo del tipo de boton para que se vea un poco mejor
         if value in top_symbols:
             button.config(
                 foreground=colors["negro"],
@@ -254,7 +255,8 @@ for row in range(row_count):
 frame.pack()
 
 
-#center the window
+#                                          CENTRAR VENTANA EN LA PANTALLA
+#centra la pantalla al abrirse 
 window.update() 
 window_width=window.winfo_width()
 window_height=window.winfo_height()
